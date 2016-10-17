@@ -5,7 +5,7 @@ var app = express();
 app.use(express.static(__dirname + '/../client'));
 
 app.get('/', function(req, res) {
-  res.send('Hi world!');
+  res.render('index');
 });
 
 app.get('/favicon.ico', function(req, res) {
