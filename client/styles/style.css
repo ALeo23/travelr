@@ -11,12 +11,8 @@ ul, ol {
   padding: 0; list-style: none;
 }
 
-#currency {
-  float: right;
-  width: 50%;
-}
-
-#weather {
-  float: left;
-  width: 50%;
+button {
+  border-radius: 5px;
+  background-color: #000000;
+  color: #ffffff;
 }
