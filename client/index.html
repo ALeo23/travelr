@@ -6,9 +6,20 @@
 </head>
 <body>
   <div ng-controller="WeatherCtrl">
-    <h1>Hello World!</h1>
+    <h1>Current Weather in San Francisco</h1>
+    <div class="container" ng-init="updateWeather">
+      <ul>
+        <li ng-model="mockData[0].date.pretty">{{ mockData[0].date.pretty }}</li>
+        <li ng-model="mockData[1].date.pretty">{{ mockData[1].date.pretty }}</li>
+      </ul>
+    </div>
 
   </div>
+
+  <script src="/app/angular.js"></script>
+  <script src="/app/services/services.js"></script>
+  <script src="/app/weather/weather.js"></script>
+  <script src="/app/app.js"></script>
 
 </body>
 </html>
