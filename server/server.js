@@ -10,6 +10,10 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
+app.get('/currency', function(req, res) {
+  res.redirect('/');
+});
+
 app.get('/favicon.ico', function(req, res) {
   res.send('No image available');
 });
