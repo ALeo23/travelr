@@ -4,6 +4,7 @@
 
 body {
   background-color: #F2E6D0;
+  font-family: 'Bungee Inline', cursive;
 }
 
 #weather {
@@ -26,6 +27,14 @@ body {
   color: #3D250B;
 }
 
+.navbar a {
+  color: #3D250B;
+}
+
+.head {
+  color: #3D250B;
+}
+
 ul, ol {
   padding: 0;
   list-style: none;
@@ -45,8 +54,12 @@ button {
 
 .day {
   background-color: #A3A093;
-  width: 27%;
+  width: 30%;
   margin-left: 15%;
+}
+
+.day li {
+  padding-left: 5%;
 }
 
 .days {

@@ -1,6 +1,6 @@
 <div id="weather" ng-controller="WeatherCtrl">
   <div class="row">
-    <h1>Travelr powered by: {{ place.title }}</h1>
+    <h1 class="head">Travelr powered by: {{ place.title }}</h1>
     <img class="img-responsive" src="http://www.hotel-r.net/im/hotel/caribbean/aw/panorama-paradise-1.jpg" alt="Paradise">
     <div class="col-md-8">
     <p class="subtext">We're based out of Tampa, FL so you're seeing our results. Enter the destination city and state below to get started.</p>
@@ -10,10 +10,10 @@
     <input type="text" name="state" ng-model="query.state" />
     <p>State/Country</p>
     <button ng-click="findWeather(query)">Get Weather</button>
-    <h2>Latest {{ place.item.title }}</h2>
+    <h2 class="head">Latest {{ place.item.title }}</h2>
     <ul class="days">
       <li class="day" ng-repeat="forecast in place.item.forecast">
-      <h4>Date: {{ forecast.day + ' ' + forecast.date }}</h4>
+      <h4 class="head">Date: {{ forecast.day + ' ' + forecast.date }}</h4>
         <ul class="forecast">
           <li>High: {{ forecast.high }} degrees F</li>
           <li>Low: {{ forecast.low }} degrees F</li>
@@ -24,7 +24,7 @@
     </ul>
   </div>
   <div class="today col-md-4">
-    <h2>Today's Conditions</h2>
+    <h2 class="head">Today's Conditions</h2>
     <h4>Wind and Humidity</h4>
       <ul>
         <li>Wind Chill: {{ place.wind.chill }}</li>
