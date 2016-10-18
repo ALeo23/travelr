@@ -22,11 +22,5 @@ angular.module('travelr.currency', [])
 
   $scope.findConversion = function() {
     $scope.conversion = +$scope.amount * +$scope.rate;
-    console.log($scope.amount, $scope.rate);
-  };
-
-  $scope.setRate = function() {
-    //set $scope.rate equal to the value of the selected option field
-
   };
 }]);
