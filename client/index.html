@@ -2,6 +2,7 @@
 <html lang="en" ng-app="travelr" ng-cloak>
 <head>
   <meta charset="UTF-8">
+  <base href="/">
   <title>Travelr</title>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="styles/style.css"/>
@@ -11,67 +12,14 @@
     <li><a href="/">Weather</a></li>
     <li><a href="/currency">Currency Calculator</a></li>
   </ul>
-  <div id="weather" ng-controller="WeatherCtrl">
-    <h1>Travelr powered by: {{ place.title }}</h1>
-    <p>We're based out of Tampa, FL so you're seeing our results. Enter the destination city and state below to get started.</p>
-    <p>It works internationally too!</p>
-    <input type="text" name="city" ng-model="query.city" />
-    <input type="text" name="state" ng-model="query.state" />
-    <button ng-click="findWeather(query)">Get Weather</button>
-    <h4>{{ place.item.title }}</h4>
-    <ul>
-      <li ng-repeat="forecast in place.item.forecast">Date: {{ forecast.day + ' ' + forecast.date }}
-        <ul>
-          <li>High: {{ forecast.high }} degrees F</li>
-          <li>Low: {{ forecast.low }} degrees F</li>
-          <li>Condition: {{ forecast.text }}</li>
-        </ul>
-        <br>
-      </li>
-    </ul>
-    <h4>Wind and Humidity</h4>
-      <ul>
-        <li>Wind Chill: {{ place.wind.chill }}</li>
-        <li>Wind Speed: {{ place.wind.speed }}</li>
-        <li>Humidity: {{ place.atmosphere.humidity }}%</li>
-      </ul>
-    <h4>The Sun</h4>
-      <ul>
-        <li>Sunrise: {{ place.astronomy.sunrise }}</li>
-        <li>Sunset: {{ place.astronomy.sunset }}</li>
-      </ul>
-    <h4>Location</h4>
-      <ul>
-        <li>Latitude: {{ place.item.lat }}</li>
-        <li>Longitude: {{ place.item.long }}</li>
-      </ul>
-    </div>
 
-  </div>
-  <div id="currency" ng-controller="CurrencyCtrl">
-    <h1>Currency Conversion: Live rates based on USD!</h1>
-    <p>Enter your amount and select the desired outcome type from the dropdown.</p>
-    <p>Refresh for live rates without leaving the page and just hit convert when you're ready to convert.</p>
-    <p>Happy Travels!</p>
-    <p>Amount in USD</p>
-    <input type="text" name="amount" ng-model="amount" id="convamount">
-    <p>Rate</p>
-
-    <input type="text" name="rate" ng-model="rate" id="convrate">
-
-    <select name="rates" ng-model="rate" convert-to-number>
-
-      <option ng-repeat="(base, rate) in rates" value="{{ rate }}" ng-value="{{ rate }}" >{{ base }}</option>
-    </select>
-
-
-    <button ng-click="findRates()">Refresh Rates</button>
-    <button ng-click="findConversion()">Convert</button>
-    <p>Converted Total Amount: {{ conversion }}</p>
-
-  </div>
+  <ng-view></ng-view>
 
   <script src="/app/angular.js"></script>
+  <script src="/app/angular-route.js"></script>
+  <script src="app/services/services.js"></script>
+  <script src="app/weather/weather.js"></script>
+  <script src="app/currency/currency.js"></script>
   <script src="/app/app.js"></script>
 
 </body>
