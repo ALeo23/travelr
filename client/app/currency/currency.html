@@ -1,13 +1,14 @@
 <div id="currency" ng-controller="CurrencyCtrl">
   <h1>Currency Conversion: Live rates based on USD!</h1>
-  <p>Enter your amount and select the desired outcome type from the dropdown.</p>
-  <p>Refresh for live rates without leaving the page and just hit convert when you're ready to convert.</p>
-  <p>Happy Travels!</p>
+  <p class="subtext">Enter your amount and select the desired outcome type from the dropdown.</p>
+  <p class="subtext">Refresh for live rates without leaving the page and just hit convert when you're ready to convert.</p>
+  <p class="subtext">Happy Travels!</p>
   <p>Amount in USD</p>
   <input type="text" name="amount" ng-model="amount" id="convamount">
   <p>Rate</p>
   <input type="text" name="rate" ng-model="rate" id="convrate">
   <select class="rates" name="rates" ng-model="rate" convert-to-number>
+    <option value="Select type..." ng-selected="true">Select type...</option>
     <option ng-repeat="(base, rate) in rates" value="{{ rate }}" ng-value="{{ rate }}" >{{ base }}</option>
   </select>
 

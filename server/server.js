@@ -19,5 +19,5 @@ app.get('/favicon.ico', function(req, res) {
 });
 
 app.listen(app.get('port'), function() {
-  console.log('Hi Alex, app in now listening on port ' + app.get('port'));
+  console.log('Hi Alex, app is now listening on port ' + app.get('port'));
 });
