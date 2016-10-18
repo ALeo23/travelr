@@ -7,6 +7,9 @@
 <body>
   <div ng-controller="WeatherCtrl">
     <h1>{{ place.title }}</h1>
+    <input type="text" name="city" ng-model="query.city" />
+    <input type="text" name="state" ng-model="query.state" />
+    <button ng-click="findWeather(query)">Get Weather</button>
     <p>{{ place.item.title }}</p>
     <ul>
       <li>Date: {{ place.item.forecast[0].day + ' ' + place.item.forecast[0].date }}</li>
