@@ -34,3 +34,5 @@
 ## Your Travelr ##
 
   To get started using Travelr, check out our website! Using Travelr doesn't even require an account, just plug in your location and reap the rewards. Use it to check the weather on the go and find out how much that collector's edition mug from Russia you've had your eye on will be.
+
+This project was part of a solo two day hackathon.
