@@ -3,14 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Travelr</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
+  <ul class="nav nav-pills">
+    <li><a href="#/">Weather</a></li>
+    <li><a href="#/currency">Currency Calculator</a></li>
+  </ul>
   <div ng-controller="WeatherCtrl">
     <h1>Travelr powered by: {{ place.title }}</h1>
+    <p>We're based out of Tampa, FL so you're seeing our results. Enter the destination city and state below to get started.</p>
+    <p>It works internationally too!</p>
     <input type="text" name="city" ng-model="query.city" />
     <input type="text" name="state" ng-model="query.state" />
     <button ng-click="findWeather(query)">Get Weather</button>
-    <p>{{ place.item.title }}</p>
+    <h4>{{ place.item.title }}</h4>
     <ul>
       <li>Date: {{ place.item.forecast[0].day + ' ' + place.item.forecast[0].date }}</li>
         <ul>
@@ -31,13 +38,27 @@
           <li>Condition: {{ place.item.forecast[2].text }}</li>
         </ul>
     </ul>
+    <h4>Wind and Humidity</h4>
+      <ul>
+        <li>Wind Chill: {{ place.wind.chill }}</li>
+        <li>Wind Speed: {{ place.wind.speed }}</li>
+        <li>Humidity: {{ place.atmosphere.humidity }}%</li>
+      </ul>
+    <h4>The Sun</h4>
+      <ul>
+        <li>Sunrise: {{ place.astronomy.sunrise }}</li>
+        <li>Sunset: {{ place.astronomy.sunset }}</li>
+      </ul>
+    <h4>Location</h4>
+      <ul>
+        <li>Latitude: {{ place.item.lat }}</li>
+        <li>Longitude: {{ place.item.long }}</li>
+      </ul>
     </div>
 
   </div>
 
   <script src="/app/angular.js"></script>
-  <script src="/app/services/services.js"></script>
-  <script src="/app/weather/weather.js"></script>
   <script src="/app/app.js"></script>
 
 </body>

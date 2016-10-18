@@ -1,5 +1,7 @@
 var travelr = angular.module('travelr', []);
 
+//Weather Factory
+
 travelr.factory('WeatherStats', ['$http', '$q', function($http, $q) {
 
   function getWeather(query) {
@@ -22,6 +24,8 @@ travelr.factory('WeatherStats', ['$http', '$q', function($http, $q) {
   };
 }]);
 
+//Weather Controller
+
 travelr.controller('WeatherCtrl', ['$scope', 'WeatherStats', function($scope, WeatherStats) {
   $scope.query = {
     city: 'tampa',
@@ -41,3 +45,19 @@ travelr.controller('WeatherCtrl', ['$scope', 'WeatherStats', function($scope, We
   };
 
 }]);
+
+//Money factory (I need one of those)
+
+
+
+//Money controller
+
+
+
+
+
+
+
+
+
+
