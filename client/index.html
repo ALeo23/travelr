@@ -6,12 +6,28 @@
 </head>
 <body>
   <div ng-controller="WeatherCtrl">
-    <h1>Current Weather in San Francisco</h1>
-    <div class="container" ng-init="updateWeather">
-      <ul>
-        <li ng-model="mockData[0].date.pretty">{{ mockData[0].date.pretty }}</li>
-        <li ng-model="mockData[1].date.pretty">{{ mockData[1].date.pretty }}</li>
-      </ul>
+    <h1>{{ place.title }}</h1>
+    <p>{{ place.item.title }}</p>
+    <ul>
+      <li>Date: {{ place.item.forecast[0].day + ' ' + place.item.forecast[0].date }}</li>
+        <ul>
+          <li>High: {{ place.item.forecast[0].high }} degrees F</li>
+          <li>Low: {{ place.item.forecast[0].low }} degrees F</li>
+          <li>Condition: {{ place.item.forecast[0].text }}</li>
+        </ul>
+        <li>Date: {{ place.item.forecast[1].day + ' ' + place.item.forecast[1].date }}</li>
+        <ul>
+          <li>High: {{ place.item.forecast[1].high }} degrees F</li>
+          <li>Low: {{ place.item.forecast[1].low }} degrees F</li>
+          <li>Condition: {{ place.item.forecast[1].text }}</li>
+        </ul>
+        <li>Date: {{ place.item.forecast[2].day + ' ' + place.item.forecast[2].date }}</li>
+        <ul>
+          <li>High: {{ place.item.forecast[2].high }} degrees F</li>
+          <li>Low: {{ place.item.forecast[2].low }} degrees F</li>
+          <li>Condition: {{ place.item.forecast[2].text }}</li>
+        </ul>
+    </ul>
     </div>
 
   </div>
