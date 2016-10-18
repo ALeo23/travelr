@@ -110,6 +110,7 @@ travelr.controller('CurrencyCtrl', ['$scope', 'CurrencyStats', function($scope, 
   };
 
   $scope.setRate = function() {
+    //set $scope.rate equal to the value of the selected option field
 
   };
 }]);

@@ -11,7 +11,7 @@
     <li><a href="/">Weather</a></li>
     <li><a href="/currency">Currency Calculator</a></li>
   </ul>
-  <div ng-controller="WeatherCtrl">
+  <div id="weather" ng-controller="WeatherCtrl">
     <h1>Travelr powered by: {{ place.title }}</h1>
     <p>We're based out of Tampa, FL so you're seeing our results. Enter the destination city and state below to get started.</p>
     <p>It works internationally too!</p>
@@ -49,14 +49,22 @@
 
   </div>
   <div id="currency" ng-controller="CurrencyCtrl">
-    <h2>Currency Conversion: Live rates based on EUR!</h2>
+    <h1>Currency Conversion: Live rates based on EUR!</h1>
+    <p>Enter your amount and select the desired outcome type from the dropdown.</p>
+    <p>Refresh for live rates without leaving the page and just hit convert when you're ready to convert.</p>
+    <p>Happy Travels!</p>
     <p>Amount</p>
     <input type="text" name="amount" ng-model="amount" id="convamount">
     <p>Rate</p>
+
     <input type="text" name="rate" ng-model="rate" id="convrate">
-    <select name="rates" ng-model="rates.rate" convert-to-number>
-      <option ng-repeat="(base, rate) in rates" value="{{ rate }}" ng-model="rate">{{ base }}</option>
+
+    <select name="rates" ng-model="rate" convert-to-number>
+
+      <option ng-repeat="(base, rate) in rates" value="{{ rate }}" ng-value="{{ rate }}" >{{ base }}</option>
     </select>
+
+
     <button ng-click="findRates()">Refresh Rates</button>
     <button ng-click="findConversion()">Convert</button>
     <p>Converted Total Amount: {{ conversion }}</p>
