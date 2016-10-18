@@ -26,6 +26,7 @@
           <li>Low: {{ forecast.low }} degrees F</li>
           <li>Condition: {{ forecast.text }}</li>
         </ul>
+        <br>
       </li>
     </ul>
     <h4>Wind and Humidity</h4>
@@ -45,6 +46,20 @@
         <li>Longitude: {{ place.item.long }}</li>
       </ul>
     </div>
+
+  </div>
+  <div id="currency" ng-controller="CurrencyCtrl">
+    <h2>Currency Conversion: Live rates based on EUR!</h2>
+    <p>Amount</p>
+    <input type="text" name="amount" ng-model="amount" id="convamount">
+    <p>Rate</p>
+    <input type="text" name="rate" ng-model="rate" id="convrate">
+    <select name="rates" ng-model="rates.rate" convert-to-number>
+      <option ng-repeat="(base, rate) in rates" value="{{ rate }}" ng-model="rate">{{ base }}</option>
+    </select>
+    <button ng-click="findRates()">Refresh Rates</button>
+    <button ng-click="findConversion()">Convert</button>
+    <p>Converted Total Amount: {{ conversion }}</p>
 
   </div>
 

@@ -1,12 +1,14 @@
 var travelr = angular.module('travelr', []);
+//travelr.currency
+//travelr.services
 
-travelr.config(function($routeProvider) {
-  $routeProvider
-    .when('/currency', {
-      templateUrl: 'app/currency/currency.html',
-      controller: 'CurrencyCtrl'
-    });
-});
+// travelr.config(function($routeProvider) {
+//   $routeProvider
+//     .when('/currency', {
+//       templateUrl: 'app/currency/currency.html',
+//       controller: 'CurrencyCtrl'
+//     });
+// });
 
 //Weather Factory
 
@@ -59,10 +61,9 @@ travelr.controller('WeatherCtrl', ['$scope', 'WeatherStats', function($scope, We
 
 travelr.factory('CurrencyStats', ['$http', '$q', function($http, $q) {
 
-  function getRate(query) {
+  function getRates() {
     var deferred = $q.defer();
-    var base = query.base;
-    $http.get('http://api.fixer.io/latest?base=' + base)
+    $http.get('http://api.fixer.io/latest')
       .success(function(data) {
         deferred.resolve(data);
       })
@@ -74,7 +75,7 @@ travelr.factory('CurrencyStats', ['$http', '$q', function($http, $q) {
   }
 
   return {
-    getRate: getRate
+    getRates: getRates
   };
 }]);
 
@@ -84,14 +85,33 @@ travelr.factory('CurrencyStats', ['$http', '$q', function($http, $q) {
 
 travelr.controller('CurrencyCtrl', ['$scope', 'CurrencyStats', function($scope, CurrencyStats) {
 
-  $scope.query = {
-    base: 'EUR'
-  };
-  function fetchConversion(query) {
-    CurrencyStats.getRate(query).then(function(data) {
-
+  $scope.rates = {};
+  $scope.base ='EUR';
+  $scope.amount = 100;
+  $scope.conversion = 0;
+  $scope.rate = 1;
+  function fetchRates() {
+    CurrencyStats.getRates().then(function(data) {
+      $scope.rates = data.rates;
+      $scope.base = data.base;
     });
   }
+
+  fetchRates();
+
+  $scope.findRates = function() {
+    $scope.rates = {};
+    fetchRates();
+  };
+
+  $scope.findConversion = function() {
+    $scope.conversion = +$scope.amount * +$scope.rate;
+    console.log($scope.amount, $scope.rate);
+  };
+
+  $scope.setRate = function() {
+
+  };
 }]);
 
 

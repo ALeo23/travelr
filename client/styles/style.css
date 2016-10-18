@@ -6,3 +6,7 @@
   background-color: #A3A093;
   border: 2px solid #3D250B;
 }
+
+ul, ol {
+  padding: 0; list-style: none;
+}
