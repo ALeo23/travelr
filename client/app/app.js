@@ -63,7 +63,7 @@ travelr.factory('CurrencyStats', ['$http', '$q', function($http, $q) {
 
   function getRates() {
     var deferred = $q.defer();
-    $http.get('https://api.fixer.io/latest')
+    $http.get('https://api.fixer.io/latest?base=USD')
       .success(function(data) {
         deferred.resolve(data);
       })
@@ -86,7 +86,7 @@ travelr.factory('CurrencyStats', ['$http', '$q', function($http, $q) {
 travelr.controller('CurrencyCtrl', ['$scope', 'CurrencyStats', function($scope, CurrencyStats) {
 
   $scope.rates = {};
-  $scope.base ='EUR';
+  $scope.base ='USD';
   $scope.amount = 100;
   $scope.conversion = 0;
   $scope.rate = 1;
