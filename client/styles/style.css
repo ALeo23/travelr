@@ -2,6 +2,11 @@
   display: none;
 }
 
+body {
+  background-color: #F2E6D0;
+  color: #3D250B;
+}
+
 .navbar {
   background-color: #A3A093;
   border: 2px solid #3D250B;

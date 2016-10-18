@@ -1,10 +1,9 @@
 angular.module('travelr.services', [])
 .factory('CurrencyStats', ['$http', '$q', function($http, $q) {
 
-  function getRate(query) {
+  function getRates() {
     var deferred = $q.defer();
-    var base = query.base;
-    $http.get('http://api.fixer.io/latest?base=' + base)
+    $http.get('https://api.fixer.io/latest?base=USD')
       .success(function(data) {
         deferred.resolve(data);
       })
@@ -16,7 +15,7 @@ angular.module('travelr.services', [])
   }
 
   return {
-    getRate: getRate
+    getRates: getRates
   };
 }])
 .factory('WeatherStats', ['$http', '$q', function($http, $q) {

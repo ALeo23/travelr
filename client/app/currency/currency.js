@@ -1,20 +1,32 @@
 angular.module('travelr.currency', [])
 .controller('CurrencyCtrl', ['$scope', 'CurrencyStats', function($scope, CurrencyStats) {
 
-  $scope.query = {
-    base: 'EUR'
-  };
+  $scope.rates = {};
+  $scope.base ='USD';
   $scope.amount = 100;
-  function fetchConversion(query) {
-    CurrencyStats.getRate(query).then(function(data) {
-      $scope.rate = data;
+  $scope.conversion = 0;
+  $scope.rate = 1;
+  function fetchRates() {
+    CurrencyStats.getRates().then(function(data) {
+      $scope.rates = data.rates;
+      $scope.base = data.base;
     });
   }
 
-  fetchConversion($scope.query);
+  fetchRates();
 
-  $scope.findConversion = function(query) {
-    $scope.price = 0;
-    fetchConversion(query);
+  $scope.findRates = function() {
+    $scope.rates = {};
+    fetchRates();
+  };
+
+  $scope.findConversion = function() {
+    $scope.conversion = +$scope.amount * +$scope.rate;
+    console.log($scope.amount, $scope.rate);
+  };
+
+  $scope.setRate = function() {
+    //set $scope.rate equal to the value of the selected option field
+
   };
 }]);
