@@ -1,5 +1,13 @@
 var travelr = angular.module('travelr', []);
 
+travelr.config(function($routeProvider) {
+  $routeProvider
+    .when('/currency', {
+      templateUrl: 'app/currency/currency.html',
+      controller: 'CurrencyCtrl'
+    });
+});
+
 //Weather Factory
 
 travelr.factory('WeatherStats', ['$http', '$q', function($http, $q) {
@@ -27,6 +35,7 @@ travelr.factory('WeatherStats', ['$http', '$q', function($http, $q) {
 //Weather Controller
 
 travelr.controller('WeatherCtrl', ['$scope', 'WeatherStats', function($scope, WeatherStats) {
+
   $scope.query = {
     city: 'tampa',
     state: 'fl'
@@ -48,11 +57,42 @@ travelr.controller('WeatherCtrl', ['$scope', 'WeatherStats', function($scope, We
 
 //Money factory (I need one of those)
 
+travelr.factory('CurrencyStats', ['$http', '$q', function($http, $q) {
+
+  function getRate(query) {
+    var deferred = $q.defer();
+    var base = query.base;
+    $http.get('http://api.fixer.io/latest?base=' + base)
+      .success(function(data) {
+        deferred.resolve(data);
+      })
+      .error(function(err) {
+        console.log('Error retrieving data.');
+        deferred.reject(err);
+      });
+      return deferred.promise;
+  }
+
+  return {
+    getRate: getRate
+  };
+}]);
+
 
 
 //Money controller
 
+travelr.controller('CurrencyCtrl', ['$scope', 'CurrencyStats', function($scope, CurrencyStats) {
 
+  $scope.query = {
+    base: 'EUR'
+  };
+  function fetchConversion(query) {
+    CurrencyStats.getRate(query).then(function(data) {
+
+    });
+  }
+}]);
 
 
 

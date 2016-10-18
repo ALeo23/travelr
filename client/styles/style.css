@@ -1,3 +1,8 @@
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none;
 }
+
+.navbar {
+  background-color: #A3A093;
+  border: 2px solid #3D250B;
+}

@@ -14,6 +14,10 @@ app.get('/favicon.ico', function(req, res) {
   res.send('No image available');
 });
 
+app.get('/currency', function(req, res) {
+
+});
+
 app.listen(app.get('port'), function() {
   console.log('Hi Alex, app in now listening on port ' + app.get('port'));
 });

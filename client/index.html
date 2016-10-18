@@ -7,9 +7,9 @@
   <link rel="stylesheet" type="text/css" href="styles/style.css"/>
 </head>
 <body>
-  <ul class="nav nav-pills">
-    <li><a href="#/">Weather</a></li>
-    <li><a href="#/currency">Currency Calculator</a></li>
+  <ul class="nav nav-pills navbar">
+    <li><a href="/">Weather</a></li>
+    <li><a href="/currency">Currency Calculator</a></li>
   </ul>
   <div ng-controller="WeatherCtrl">
     <h1>Travelr powered by: {{ place.title }}</h1>
@@ -20,24 +20,13 @@
     <button ng-click="findWeather(query)">Get Weather</button>
     <h4>{{ place.item.title }}</h4>
     <ul>
-      <li>Date: {{ place.item.forecast[0].day + ' ' + place.item.forecast[0].date }}</li>
+      <li ng-repeat="forecast in place.item.forecast">Date: {{ forecast.day + ' ' + forecast.date }}
         <ul>
-          <li>High: {{ place.item.forecast[0].high }} degrees F</li>
-          <li>Low: {{ place.item.forecast[0].low }} degrees F</li>
-          <li>Condition: {{ place.item.forecast[0].text }}</li>
+          <li>High: {{ forecast.high }} degrees F</li>
+          <li>Low: {{ forecast.low }} degrees F</li>
+          <li>Condition: {{ forecast.text }}</li>
         </ul>
-        <li>Date: {{ place.item.forecast[1].day + ' ' + place.item.forecast[1].date }}</li>
-        <ul>
-          <li>High: {{ place.item.forecast[1].high }} degrees F</li>
-          <li>Low: {{ place.item.forecast[1].low }} degrees F</li>
-          <li>Condition: {{ place.item.forecast[1].text }}</li>
-        </ul>
-        <li>Date: {{ place.item.forecast[2].day + ' ' + place.item.forecast[2].date }}</li>
-        <ul>
-          <li>High: {{ place.item.forecast[2].high }} degrees F</li>
-          <li>Low: {{ place.item.forecast[2].low }} degrees F</li>
-          <li>Condition: {{ place.item.forecast[2].text }}</li>
-        </ul>
+      </li>
     </ul>
     <h4>Wind and Humidity</h4>
       <ul>
