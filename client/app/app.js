@@ -63,7 +63,7 @@ travelr.factory('CurrencyStats', ['$http', '$q', function($http, $q) {
 
   function getRates() {
     var deferred = $q.defer();
-    $http.get('http://api.fixer.io/latest')
+    $http.get('https://api.fixer.io/latest')
       .success(function(data) {
         deferred.resolve(data);
       })
