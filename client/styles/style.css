@@ -5,6 +5,7 @@
 body {
   background-color: #F2E6D0;
   font-family: 'Bungee Inline', cursive;
+  color: #3D250B;
 }
 
 #weather {
@@ -44,6 +45,7 @@ ul, ol {
 
 p {
   font-size: 18px;
+  color: #3D250B;
 }
 
 button {
