@@ -4,7 +4,10 @@
 
 body {
   background-color: #F2E6D0;
-  color: #3D250B;
+}
+
+#weather {
+  padding-left: 2%;
 }
 
 .navbar {
@@ -13,11 +16,27 @@ body {
 }
 
 ul, ol {
-  padding: 0; list-style: none;
+  padding: 0;
+  list-style: none;
+  color: #3D250B;
 }
 
 button {
   border-radius: 5px;
   background-color: #000000;
   color: #ffffff;
+}
+
+.day {
+  background-color: #A3A093;
+  width: 25%;
+  margin-left: 15%;
+}
+
+.days {
+  height: 10%;
+}
+
+.forecast li {
+  font-size: 20px;
 }

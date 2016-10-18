@@ -8,10 +8,11 @@
     <input type="text" name="city" ng-model="query.city" />
     <input type="text" name="state" ng-model="query.state" />
     <button ng-click="findWeather(query)">Get Weather</button>
-    <h4>{{ place.item.title }}</h4>
-    <ul>
-      <li ng-repeat="forecast in place.item.forecast">Date: {{ forecast.day + ' ' + forecast.date }}
-        <ul>
+    <h2>{{ place.item.title }}</h2>
+    <ul class="days">
+      <li class="day" ng-repeat="forecast in place.item.forecast">
+      <h4>Date: {{ forecast.day + ' ' + forecast.date }}</h4>
+        <ul class="forecast">
           <li>High: {{ forecast.high }} degrees F</li>
           <li>Low: {{ forecast.low }} degrees F</li>
           <li>Condition: {{ forecast.text }}</li>
@@ -20,7 +21,8 @@
       </li>
     </ul>
   </div>
-  <div class="col-md-4">
+  <div class="today col-md-4">
+    <h2>Today's Conditions</h2>
     <h4>Wind and Humidity</h4>
       <ul>
         <li>Wind Chill: {{ place.wind.chill }}</li>
