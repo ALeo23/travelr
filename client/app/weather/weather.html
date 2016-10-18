@@ -1,6 +1,8 @@
 <div id="weather" ng-controller="WeatherCtrl">
+  <div class="row">
     <h1>Travelr powered by: {{ place.title }}</h1>
     <img class="img-responsive" src="http://www.hotel-r.net/im/hotel/caribbean/aw/panorama-paradise-1.jpg" alt="Paradise">
+    <div class="col-md-8">
     <p>We're based out of Tampa, FL so you're seeing our results. Enter the destination city and state below to get started.</p>
     <p>It works internationally too!</p>
     <input type="text" name="city" ng-model="query.city" />
@@ -17,6 +19,8 @@
         <br>
       </li>
     </ul>
+  </div>
+  <div class="col-md-4">
     <h4>Wind and Humidity</h4>
       <ul>
         <li>Wind Chill: {{ place.wind.chill }}</li>
@@ -33,6 +37,7 @@
         <li>Latitude: {{ place.item.lat }}</li>
         <li>Longitude: {{ place.item.long }}</li>
       </ul>
-    </div>
-
+      </div>
   </div>
+  </div>
+</div>
